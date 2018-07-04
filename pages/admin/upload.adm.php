@@ -5,7 +5,8 @@
  * Date: 6/19/2018
  * Time: 9:53 AM
  */
-
+//require ('upload.dress.php');
+//$success='';
 ?>
 
 <html>
@@ -66,21 +67,54 @@
                            <h3 class="panel-title">Overview</h3>
                        </div>
                        <div class="panel-body">
-                           <div class="col-md-4">
-                               <div class="well text-center">
-                                   <h1>Users</h1>
+                           <div class="row">
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-3 text-center">
+                                   <div class="well">
+                                       <h1>Users</h1>
+                                   </div>
                                </div>
                            </div>
-
-                           <div class="col-md-4">
-                               <div class="well text-center">
-                                   <h1>Users</h1>
+                           <div class="row">
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
                                </div>
-                           </div>
 
-                           <div class="col-md-4 text-center">
-                               <div class="well">
-                                   <h1>Users</h1>
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-3">
+                                   <div class="well text-center">
+                                       <h1>Users</h1>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-3 text-center">
+                                   <div class="well">
+                                       <h1>Users</h1>
+                                   </div>
                                </div>
                            </div>
                        </div>
@@ -97,7 +131,7 @@
       <div class="modal fade" id="addDress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="post" action="upload.dress.php">
+                <form method="post" action="upload.dress.php" enctype="multipart/form-data">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
                     <h3 class="modal-title" id="myModalLabel">Dress</h3>
@@ -105,38 +139,33 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="dressId" style="margin-bottom: 5px;">ID</label>
-                        <input type="text" class="form-control" id="dressId">
+                        <input type="text" class="form-control" name="dressId" id="dressId" required>
                     </div>
 
                       <div class="form-group">
                           <label for="dressModel" style="margin-bottom: 5px;">Model</label>
-                          <input type="text" class="form-control" id="dressModel">
+                          <input type="text" class="form-control" name="dressModel" id="dressModel" required>
                       </div>
 
                     <div class="form-group">
                         <label for="dressImage" style="margin-bottom: 5px;">Image</label>
-                        <input type="file" class="form-control-file" id="dressImage">
+                        <input type="file" class="form-control-file" name="image" id="dressImage" required>
                     </div>
 
                     <div class="form-group">
                         <label for="dressSize" style="margin-bottom: 5px;">Size</label>
-                        <input type="text" class="form-control" id="dressSize">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dressDescription" style="margin-bottom: 5px;">Description</label>
-                        <textarea class="form-control rounded-0" id="dressDescription" rows="3"></textarea>
+                        <input type="text" class="form-control" name="dressSize" id="dressSize" required>
                     </div>
 
                     <div class="form-group">
                         <label for="dressPrice" style="margin-bottom: 5px;">Price</label>
-                        <input type="number" class="form-control" id="dressPrice">
+                        <input type="number" class="form-control" name="dressPrice" id="dressPrice" required>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" name="addDress" class="btn btn-primary">Save</button>
+                    <button type="submit" name="addDress" class="btn btn-primary">Save</button>
                 </div>
                 </form>
             </div>
@@ -184,7 +213,7 @@
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save</button>
+                          <button type="submit" class="btn btn-primary">Save</button>
                       </div>
                   </form>
               </div>
@@ -201,7 +230,7 @@
                       <div class="modal-body">
                           <div class="form-group">
                               <label for="topId" style="margin-bottom: 5px;">ID</label>
-                              <input type="text" class="form-control" id="topIdId">
+                              <input type="text" name="topId" class="form-control" id="topId">
                           </div>
 
                           <div class="form-group">

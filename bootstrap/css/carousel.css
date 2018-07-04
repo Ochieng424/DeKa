@@ -1,0 +1,22 @@
+#slider .item{
+    height: 450px;
+}
+
+#slide1{
+    background: url("../../img/carousel/01.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#slide2{
+    background: url("../../img/carousel/02.jpg") center no-repeat;
+    background-size: cover;
+}
+
+#slide3{
+    background: url("../../img/carousel/03.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.carousel-caption{
+    font-size: 18px;
+}

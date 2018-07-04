@@ -1,14 +1,14 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
 body{
     background-image: url("../../img/beads-809385.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    line-height:1;
+}
+
+*{
+    padding: 0;
+    margin: 0;
 }
 
 .navbar-inverse{
@@ -30,7 +30,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
+footer, header, menu, nav, section, summary,
 time, mark, audio, video {
     margin:0;
     padding:0;
@@ -41,12 +41,8 @@ time, mark, audio, video {
     background:transparent;
 }
 
-body {
-    line-height:1;
-}
-
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
+footer,header,menu,nav,section {
     display:block;
 }
 

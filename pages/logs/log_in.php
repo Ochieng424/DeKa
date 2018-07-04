@@ -12,7 +12,9 @@
 <head>
     <title>deka | sign up</title>
     <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/index.css">
+<!--    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/index.css">-->
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/forms.css">
     <style type="text/css">
         .error{
             color: red;
@@ -24,34 +26,35 @@
     </style>
 </head>
 <body>
+<div class="container-fluid" id="wrapper">
+    <div class="container">
+        <div class="row">
 
-<div class="container-fluid">
-    <div class="row">
+            <div class="col-sm-4 col-sm-offset-4" id="divForm"
+                 style="padding: 10px 50px 20px 50px; background-color: rgba(255, 255, 255, .9); border-radius: 5px; margin-top: 140px; border: 1px solid #122b40;">
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <span class=" lead text-info" style="font-size: 18px; font-size: 160%;">DeKa</span>
+                </div>
+                <div class="text-center">
+                    <form id="sign_up" autocomplete="off" method="post" action="../includes/login.inc.php">
 
-        <div class="col-md-4 col-md-offset-4"
-             style="padding: 10px 50px 20px 50px; background-color: rgba(255, 255, 255, .9); border-radius: 5px; margin-top: 140px;">
-            <div class="text-center" style="margin-bottom: 20px;">
-                <span class=" lead text-info" style="font-size: 18px; font-size: 160%;">DeKa</span>
-            </div>
-            <div class="text-center">
-                <form id="sign_up" autocomplete="off" method="post" action="../includes/login.inc.php">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="input" placeholder="Email" style="outline: none; border: none;">
+                        </div>
 
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Password" style="border-radius: 25px; background: #e6e6e6; font-size: 15px;">
+                        </div>
+
+                        <div class="input-group text-center" style="margin-top: 30px; width: 100%;">
+                            <button type="submit" class="btn btn-info col-xs-12" name="btn_LogIn"><span style="font-family: roboto-medium;"> Sign In </span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="input-group text-center" style="margin-top: 10px;">
+                        <p class="lead" style="font-size: 16px;">Not a member? <a href="sign_up.php" >Join Now</a></p>
                     </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" id="password"
-                               placeholder="Password">
-                    </div>
-
-                    <div class="input-group text-center" style="margin-top: 30px; width: 100%;">
-                        <button type="submit" class="btn btn-info col-xs-12" name="btn_LogIn"><span style="font-family: roboto-medium;"> Sign In </span>
-                        </button>
-                    </div>
-                </form>
-                <div class="input-group text-center" style="margin-top: 10px;">
-                    <p class="lead" style="font-size: 16px;">Not a member? <a href="sign_up.php" >Join Now</a></p>
                 </div>
             </div>
         </div>
