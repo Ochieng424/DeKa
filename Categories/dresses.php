@@ -39,9 +39,10 @@ if (filter_input(INPUT_POST, 'add_to_cart')){
 
 <html>
 <head>
-    <title></title>
+    <title>DeKa | dresses</title>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
  <div class="container-fluid">
@@ -59,14 +60,14 @@ if (filter_input(INPUT_POST, 'add_to_cart')){
                  <div class="navbar-collapse collapse">
 
                      <ul class="nav navbar-nav navbar-left">
-                         <li><a href="index.php">HOME</a></li>
+                         <li><a href="../index.php">HOME</a></li>
                          <li class="dropdown">
                              <a data-toggle="dropdown" class="dropdown-toggle">CATEGORIES<b class="caret"></b></a>
                              <ul class="dropdown-menu">
-                                 <li><a href="Categories/dresses.php">Dresses</a></li>
-                                 <li><a href="Categories/skirts.php">Skirts</a></li>
-                                 <li><a href="Categories/tops.php">Tops</a></li>
-                                 <li><a href="Categories/shoes.php">Shoes</a></li>
+                                 <li><a href="dresses.php">Dresses</a></li>
+                                 <li><a href="skirts.php">Skirts</a></li>
+                                 <li><a href="tops.php">Tops</a></li>
+                                 <li><a href="shoes.php">Shoes</a></li>
                              </ul>
                          </li>
                          <li><a href="about.html">ABOUT</a></li>
@@ -75,21 +76,34 @@ if (filter_input(INPUT_POST, 'add_to_cart')){
                      <ul class="nav navbar-nav navbar-right">
                          <?php
                          if (isset($_SESSION['User_ID'])){
-                             echo "<form method=\"post\" action=\"pages/includes/logout.inc.php\">
+                             echo "<form method=\"post\" action=\"../pages/includes/logout.inc.php\">
                               <button class=\"btn btn-primary\" name=\"logOut\" style='margin: 8px;'>Log Out</button>
                           </form>";
                          }else{
-                             echo '<li><a href="../pages/logs/sign_up.php">Sign Up</a></li>';
+                             echo '<li><a href="../pages/logs/sign_up.php">SIGN UP</a></li>';
                          }
                          ?>
+                     </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                         <li>
+                             <a href="" id="cart_icon"><i class="fa fa-2x fa-shopping-cart"></i>
+                                 <span class="badge" style="margin: -28px 0px 0 -10px;"><?php
+                                     if (isset($_SESSION["shopping_cart"])){
+                                         echo count($_SESSION['shopping_cart']);
+                                     }else{
+                                         echo '0';
+                                     }
+                                     ?>
+                                 </span></a>
+                         </li>
                      </ul>
                  </div>
 
              </div>
          </div>
      </div>
-     <div class="container" style="margin-top: 50px;">
-         <div class="text-center" style="padding: 10px; margin-bottom: 20px;">
+     <div class="container" id="productsContainer">
+         <div class="text-center" id="productsHeader">
              <h2 class="lead">DRESSES</h2>
          </div>
 

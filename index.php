@@ -48,21 +48,31 @@ session_start();
                 <?php
                 if (isset($_SESSION['User_ID'])){
                     echo "<form method=\"post\" action=\"pages/includes/logout.inc.php\">
-                              <button class=\"btn btn-primary\" name=\"logOut\" style='margin: 8px;'>Log Out</button>
+                              <button class=\"btn btn-info\" name=\"logOut\" style='margin-top: 13px; border-radius: 25px'>Log Out</button>
                           </form>";
                 }else{
-                    echo '<li><a href="pages/logs/sign_up.php">Sign Up</a></li>';
+                    echo '<li><a href="pages/logs/sign_up.php">SIGN UP</a></li>';
                 }
                 ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <a href="" style="color: white;"><i class="fa fa-2x fa-shopping-cart" style="margin: 9px 6px;"></i></a>
+                <li style="margin: 0">
+                    <a href="" id="cart_icon"><i class="fa fa-2x fa-shopping-cart"></i>
+                        <span class="badge" style="margin: -28px 0px 0 -10px;"><?php
+                            if (isset($_SESSION["shopping_cart"])){
+                                echo count($_SESSION['shopping_cart']);
+                            }else{
+                                echo '0';
+                            }
+                            ?>
+                    </span></a>
+                </li>
             </ul>
         </div>
 
     </div>
 </div>
-<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+<div class="container-fluid">
     <div class="carousel slide" id="slider" data-ride="carousel">
         <ol class="carousel-indicators">
             <li class="active" data-slide-to="0" data-target="#slider"></li>
@@ -72,32 +82,24 @@ session_start();
        <div class="carousel-inner" role="listbox">
            <div class="item active" id="slide1">
                <div class="carousel-caption">
-                   <h3><p class="lead">DeKa Collections</p></h3>
+                   <h3 class="lead">DeKa Collections</h3>
                </div>
            </div>
 
            <div class="item" id="slide2">
                <div class="carousel-caption">
-                   <h3><p class="lead">DeKa Collections</p></h3>
+                   <h3 class="lead">DeKa Collections</h3>
                </div>
            </div>
 
            <div class="item" id="slide3">
                <div class="carousel-caption">
-                   <h3><p class="lead">DeKa Collections</p></h3>
+                   <h3 class="lead">DeKa Collections</h3>
                </div>
            </div>
        </div>
         <a class="left carousel-control" href="#slider" data-slide="prev" role="button"><span class="icon-prev"></span> </a>
         <a class="right carousel-control" href="#slider" data-slide="next" role="button"><span class="icon-next"></span> </a>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4" style="border: 1px solid black;">
-
-        </div>
     </div>
 </div>
 

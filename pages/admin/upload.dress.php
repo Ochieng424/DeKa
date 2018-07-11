@@ -30,7 +30,10 @@ if (isset($_POST['addDress'])){
         $resultCheck = mysqli_num_rows($results);
 
         if ($resultCheck > 0){
-            $msg = "Product already exist";
+            echo "<script>
+                       window.location.href='upload.adm.php';
+                       alert('Product already exist');
+                       </script>";
         }else{
             $sqlProd = "INSERT INTO `dress`(`dress_ID`, `model`, `image`, `size`, `price`) VALUES ('$dressID',
                       '$dressModel','$image','$dressSize','$dressPrice')";
@@ -38,26 +41,29 @@ if (isset($_POST['addDress'])){
             $upload = move_uploaded_file($_FILES['image']['tmp_name'], $target);
 
             if (!$result || !$upload){
-                echo "Failed to add to database".mysqli_error($connect,$upload);
+                echo "<script>
+                       window.location.href='upload.adm.php';
+                       alert('Something went wrong');
+                       </script>";
             }else{
-                header("Location: upload.adm.php");
-                $msg = "Upload successful";
-               $success= '<div class="alert alert-success">';
-                           echo '<a href="#" class="close" data-dismiss="alert">&times;</a>';
-                           echo '<strong><?php echo $msg; ?></strong>';
-               echo '</div>';
+                echo "<script>
+                       window.location.href='upload.adm.php';
+                       alert('Upload Successful');
+                       </script>";
+
             }
         }
     }else{
-        echo 'Cannot upload file of such kind';
+        echo "<script>
+                       window.location.href='upload.adm.php';
+                       alert('Cannot upload file of such kind');
+                       </script>";
     }
 }
 ?>
 <html>
 <head>
-    <title>
-
-    </title>
+    <title>DeKa | dresses</title>
     <link href="../../bootstrap/css/bootstrap.css" type="text/css">
 </head>
 <body>

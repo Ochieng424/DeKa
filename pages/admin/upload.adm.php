@@ -174,7 +174,7 @@
       <div class="modal fade" id="addSkirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
-                  <form>
+                  <form action="upload.skirt.php" method="post" enctype="multipart/form-data">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
                           <h3 class="modal-title" id="myModalLabel">Skirt</h3>
@@ -182,38 +182,33 @@
                       <div class="modal-body">
                           <div class="form-group">
                               <label for="skirtId" style="margin-bottom: 5px;">ID</label>
-                              <input type="text" class="form-control" id="skirtId">
+                              <input type="text" class="form-control" name="skirtId">
                           </div>
 
                           <div class="form-group">
                               <label for="skirtModel" style="margin-bottom: 5px;">Model</label>
-                              <input type="text" class="form-control" id="skirtModel">
+                              <input type="text" class="form-control" name="skirtModel">
                           </div>
 
                           <div class="form-group">
                               <label for="skirtImage" style="margin-bottom: 5px;">Image</label>
-                              <input type="file" class="form-control-file" id="skirtImage">
+                              <input type="file" class="form-control-file" name="image">
                           </div>
 
                           <div class="form-group">
                               <label for="skirtSize" style="margin-bottom: 5px;">Size</label>
-                              <input type="text" class="form-control" id="skirtSize">
-                          </div>
-
-                          <div class="form-group">
-                              <label for="skirtDescription" style="margin-bottom: 5px;">Description</label>
-                              <textarea class="form-control rounded-0" id="skirtDescription" rows="3"></textarea>
+                              <input type="text" class="form-control" name="skirtSize">
                           </div>
 
                           <div class="form-group">
                               <label for="skirtPrice" style="margin-bottom: 5px;">Price</label>
-                              <input type="number" class="form-control" id="skirtPrice">
+                              <input type="number" class="form-control" name="skirtPrice">
                           </div>
 
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" name="addSkirt" class="btn btn-primary">Save</button>
                       </div>
                   </form>
               </div>
@@ -222,7 +217,7 @@
       <div class="modal fade" id="addTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
-                  <form>
+                  <form action="admin.top.php" method="post" enctype="multipart/form-data">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
                           <h3 class="modal-title" id="myModalLabel">Top</h3>
@@ -249,11 +244,6 @@
                           </div>
 
                           <div class="form-group">
-                              <label for="topDescription" style="margin-bottom: 5px;">Description</label>
-                              <textarea class="form-control rounded-0" id="topDescription" rows="3"></textarea>
-                          </div>
-
-                          <div class="form-group">
                               <label for="topPrice" style="margin-bottom: 5px;">Price</label>
                               <input type="number" class="form-control" id="topPrice">
                           </div>
@@ -270,7 +260,7 @@
       <div class="modal fade" id="addShoes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
-                  <form>
+                  <form action="admin.shoes.php" method="post" enctype="multipart/form-data">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
                           <h3 class="modal-title" id="myModalLabel">Shoe</h3>
@@ -294,11 +284,6 @@
                           <div class="form-group">
                               <label for="shoeSize" style="margin-bottom: 5px;">Size</label>
                               <input type="number" class="form-control" id="shoeSize">
-                          </div>
-
-                          <div class="form-group">
-                              <label for="shoeDescription" style="margin-bottom: 5px;">Description</label>
-                              <textarea class="form-control rounded-0" id="shoeDescription" rows="3"></textarea>
                           </div>
 
                           <div class="form-group">

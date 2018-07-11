@@ -5,6 +5,7 @@
  * Date: 6/13/2018
  * Time: 8:29 AM
  */
+session_start();
 
 ?>
 
@@ -13,39 +14,99 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="bs-example">
-    <nav class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">DeKa</a>
-        </div>
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="../index.php">Home</a></li>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Categories<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Dresses</a></li>
-                        <li><a href="#">Skirts</a></li>
-                        <li><a href="#">Tops</a></li>
-                        <li><a href="#">Shoes</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">All</a></li>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">DeKa</a>
+                </div>
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="../index.php">HOME</a></li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle">CATEGORIES<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="dresses.php">Dresses</a></li>
+                                <li><a href="skirts.php">Skirts</a></li>
+                                <li><a href="tops.php">Tops</a></li>
+                                <li><a href="shoes.php">Shoes</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contacts</a></li>
-            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php
+                        if (isset($_SESSION['User_ID'])){
+                            echo "<form method=\"post\" action=\"../pages/includes/logout.inc.php\">
+                              <button class=\"btn btn-info\" name=\"logOut\" style='margin-top: 13px; border-radius: 25px'>Log Out</button>
+                          </form>";
+                        }else{
+                            echo '<li><a href="../pages/logs/sign_up.php">SIGN UP</a></li>';
+                        }
+                        ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="" id="cart_icon"><i class="fa fa-2x fa-shopping-cart"></i>
+                                <span class="badge" style="margin: -28px 0px 0 -10px;"><?php
+                                    if (isset($_SESSION["shopping_cart"])){
+                                        echo count($_SESSION['shopping_cart']);
+                                    }else{
+                                        echo '0';
+                                    }
+                                    ?>
+                                 </span></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-    </nav>
+    </div>
+    <div class="container" id="productsContainer">
+        <div class="text-center" id="productsHeader">
+            <h2 class="lead">TOPS</h2>
+        </div>
+
+        <?php
+        include "../pages/includes/connect.php";
+        $query = "SELECT * FROM top;";
+        $result = mysqli_query($connect, $query);
+
+        if (mysqli_num_rows($result) > 0){
+            while ($row = mysqli_fetch_array($result)){
+                ?>
+                <div class="col-sm-4 col-md-3">
+                    <div class="well">
+                        <?php echo "<img style='height: 200px; border-radius:5px; margin: 0px auto;' src='../products/dress/".$row['image']."' class='img-responsive'>"?>
+                        <h4 class="text-info" style="margin: 6px; font-size: 15px;"><?php echo $row["model"];?></h4>
+                        <h4 class="text-success" style="margin: 6px; font-size: 14px;"><?php echo $row["size"];?></h4>
+                        <h4 class="text-danger" style="margin: 6px; font-size: 13px;">Ksh.<?php echo $row["price"];?></h4>
+                        <form action="dresses.php?action=add&dress_ID=<?php echo $row["dress_ID"]?>" method="post">
+                            <input type="hidden" name="dress_model" value="<?php echo $row["model"];?>">
+                            <input type="hidden" name="dress_size" value="<?php echo $row["size"];?>">
+                            <input type="hidden" name="dress_price" value="<?php echo $row["price"];?>">
+
+                            <button class="btn btn-success" type="submit" name="add_to_cart" style="margin: 6px;">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
 </div>
 </body>
 <script src="../bootstrap/JQuery/jquery-3.3.1.min.js"></script>
